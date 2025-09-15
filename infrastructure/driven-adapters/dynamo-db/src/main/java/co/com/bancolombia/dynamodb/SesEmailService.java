@@ -7,8 +7,6 @@ import reactor.core.publisher.Mono;
 import software.amazon.awssdk.services.sesv2.SesV2AsyncClient;
 import software.amazon.awssdk.services.sesv2.model.*;
 
-import javax.swing.text.AbstractDocument;
-
 @Service
 public class SesEmailService {
 
@@ -22,7 +20,7 @@ public class SesEmailService {
     }
 
     public Mono<Void> send(EmailRequest req, boolean html) {
-        AbstractDocument.Content subject = Content.builder().data(req.subject()).build();
+        Content subject = Content.builder().data(req.subject()).build();
         Body body = html
                 ? Body.builder().html(Content.builder().data(req.text()).build()).build()
                 : Body.builder().text(Content.builder().data(req.text()).build()).build();

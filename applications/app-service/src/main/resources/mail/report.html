@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+        /* Estilos básicos seguros para email */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f6f8fb;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1f2937;
+        }
+
+        .wrapper {
+            width: 100%;
+            background: #f6f8fb;
+            padding: 24px 0;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+        }
+
+        .header {
+            background: #0ea5e9;
+            color: #ffffff;
+            padding: 20px 24px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .sub {
+            font-size: 12px;
+            opacity: .9;
+            margin-top: 4px;
+        }
+
+        .content {
+            padding: 20px 24px;
+            line-height: 1.5;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #f1f5f9;
+            font-size: 12px;
+            color: #475569;
+        }
+
+        .cards {
+            margin: 16px 0;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1 1 180px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .card h3 {
+            margin: 0 0 6px 0;
+            font-size: 14px;
+            color: #0f172a;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 13px;
+            color: #334155;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th, td {
+            font-size: 13px;
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+
+        .footer {
+            padding: 16px 24px;
+            font-size: 12px;
+            color: #64748b;
+            background: #fafafa;
+        }
+
+        a {
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="header">
+            <h1>{{title}}</h1>
+            <div class="sub">Generado el {{date}} · Enviado a {{recipientName}}</div>
+        </div>
+
+        <div class="content">
+            <span class="badge">{{badge}}</span>
+
+            <p>Hola {{recipientName}},</p>
+            <p>{{introText}}</p>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Solicitudes aprobadas</h3>
+                    <p><strong>{{totalApproved}}</strong></p>
+                </div>
+                <div class="card">
+                    <h3>Monto total aprobado</h3>
+                    <p><strong>{{totalAmount}}</strong></p>
+                </div>
+            </div>
+
+            <h3 style="margin-top:16px;">Detalle</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Documento</th>
+                    <th>Email</th>
+                    <th>Monto</th>
+                    <th>Nombre completo</th>
+                    <th>Direccion</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{rows}}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            Este es un envío automático. Si necesitas ayuda, contesta a <a href="mailto:{{supportEmail}}">{{supportEmail}}</a>.
+        </div>
+    </div>
+</div>
+</body>
+</html>
